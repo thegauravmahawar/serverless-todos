@@ -7,11 +7,13 @@ provider:
   runtime: python3.9
   iam:
     role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/todos-lambda-policy
+  apiGateway:
+    restApiId: o3d98utzsi
+    restApiRootResourceId: 9eszlr
 
 functions:
-  hello:
-    handler: handler.delete_todos
+  delete_todos:
+    handler: handler.delete
     events:
-      - httpApi:
-          path: /todos/{id}
-          method: DELETE
+      - http: DELETE /{id}
+

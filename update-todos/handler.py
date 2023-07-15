@@ -1,7 +1,7 @@
 import json
 
 
-def update_todos(event, context):
+def update(event, context):
     body = {
         "message": "Go Serverless v3.0! Your function executed successfully!",
         "input": event,

@@ -1,7 +1,7 @@
 import json
 
 
-def delete_todos(event, context):
+def delete(event, context):
     body = {
         "message": "Go Serverless v3.0! Your function executed successfully!",
         "input": event,

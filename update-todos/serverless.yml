@@ -7,11 +7,14 @@ provider:
   runtime: python3.9
   iam:
     role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/todos-lambda-policy
+  apiGateway:
+    restApiId: o3d98utzsi
+    restApiRootResourceId: 91ruh7
 
 functions:
-  hello:
-    handler: handler.update_todos
+  update_todos:
+    handler: handler.update
     events:
-      - httpApi:
-          path: /todos/{id}
-          method: PUT
+      - http: PUT /
+
+
