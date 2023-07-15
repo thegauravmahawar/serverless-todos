@@ -12,5 +12,5 @@ functions:
     handler: handler.update_todos
     events:
       - httpApi:
-          path: /
-          method: put
+          path: /todos/{id}
+          method: PUT

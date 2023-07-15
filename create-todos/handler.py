@@ -7,6 +7,6 @@ def create_todos(event, context):
         "input": event,
     }
 
-    response = {"statusCode": 200, "body": json.dumps(body)}
+    response = {"statusCode": 201, "body": json.dumps(body)}
 
     return response

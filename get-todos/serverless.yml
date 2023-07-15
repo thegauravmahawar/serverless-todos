@@ -12,5 +12,5 @@ functions:
     handler: handler.get_todos
     events:
       - httpApi:
-          path: /
-          method: get
+          path: /todos/{id}
+          method: GET

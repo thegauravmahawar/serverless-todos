@@ -12,5 +12,5 @@ functions:
     handler: handler.create_todos
     events:
       - httpApi:
-          path: /
-          method: post
+          path: /todos
+          method: POST

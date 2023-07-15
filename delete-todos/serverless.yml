@@ -12,5 +12,5 @@ functions:
     handler: handler.delete_todos
     events:
       - httpApi:
-          path: /
-          method: delete
+          path: /todos/{id}
+          method: DELETE
