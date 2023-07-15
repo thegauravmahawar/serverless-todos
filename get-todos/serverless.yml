@@ -4,10 +4,12 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: python3.9
+  iam:
+    role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/todos-lambda-policy
 
 functions:
   hello:
-    handler: handler.hello
+    handler: handler.get_todos
     events:
       - httpApi:
           path: /
