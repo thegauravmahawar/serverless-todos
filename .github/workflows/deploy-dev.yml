@@ -1,0 +1,32 @@
+name: Deploy dev branch
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy-create-todos:
+    name: Deploy Create Todos
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'create-todos/**'
+      - if: steps.changes.outputs.src == 'true'
+        uses: serverless/github-action@v3.2
+          with:
+            args: -c "cd ./create-todos && serverless deploy"
+            args: deploy
+          env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
