@@ -6,7 +6,7 @@ def create(event, context):
     raw_payload = event['body']
     payload = json.loads(raw_payload)
     print(payload)
-    print(2)
+    print(3)
 
     response = {
         "statusCode": 201,
