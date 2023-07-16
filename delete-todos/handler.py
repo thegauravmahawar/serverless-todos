@@ -4,7 +4,6 @@ import json
 def delete(event, context):
 
     id = event['pathParameters']['id']
-    print(2)
 
     response = {
         "statusCode": 200,
