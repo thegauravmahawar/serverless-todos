@@ -23,7 +23,7 @@ jobs:
       - if: steps.create-todos-changes.outputs.src == 'true'
         uses: serverless/github-action@v3.2
         with:
-          args: -c "cd ./create-todos && serverless deploy"
+          args: -c "cd ./create-todos && serverless deploy --stage dev"
           entrypoint: /bin/sh
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -48,7 +48,7 @@ jobs:
       - if: steps.delete-todos-changes.outputs.src == 'true'
         uses: serverless/github-action@v3.2
         with:
-          args: -c "cd ./delete-todos && serverless deploy"
+          args: -c "cd ./delete-todos && serverless deploy --stage dev"
           entrypoint: /bin/sh
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -73,7 +73,7 @@ jobs:
       - if: steps.get-todos-changes.outputs.src == 'true'
         uses: serverless/github-action@v3.2
         with:
-          args: -c "cd ./get-todos && serverless deploy"
+          args: -c "cd ./get-todos && serverless deploy --stage dev"
           entrypoint: /bin/sh
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -98,7 +98,7 @@ jobs:
       - if: steps.update-todos-changes.outputs.src == 'true'
         uses: serverless/github-action@v3.2
         with:
-          args: -c "cd ./update-todos && serverless deploy"
+          args: -c "cd ./update-todos && serverless deploy --stage dev"
           entrypoint: /bin/sh
         env:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}

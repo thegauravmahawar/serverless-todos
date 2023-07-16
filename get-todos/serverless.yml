@@ -1,6 +1,14 @@
 service: get-todos
 frameworkVersion: '3'
 
+custom:
+  restApiId:
+    dev: o3d98utzsi
+    prod: gkx214a0s8
+  restApiRootResourceId:
+    dev: 91ruh7
+    prod: pae90i
+
 provider:
   name: aws
   region: us-east-2
@@ -8,8 +16,8 @@ provider:
   iam:
     role: arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/todos-lambda-policy
   apiGateway:
-    restApiId: o3d98utzsi
-    restApiRootResourceId: 91ruh7
+    restApiId: ${self:custom.restApiId.${opt:stage}}
+    restApiRootResourceId: ${self:custom.restApiRootResourceId.${opt:stage}}
 
 functions:
   get_todos:
