@@ -3,7 +3,6 @@ import json
 
 def get(event, context):
 
-    print(3)
     id = event['pathParameters']['id']
     payload = {
         'id': id,
