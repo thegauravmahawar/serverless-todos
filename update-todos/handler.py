@@ -2,11 +2,16 @@ import json
 
 
 def update(event, context):
-    body = {
-        "message": "Go Serverless v3.0! Your function executed successfully!",
-        "input": event,
-    }
 
-    response = {"statusCode": 200, "body": json.dumps(body)}
+    raw_payload = event['body']
+    payload = json.loads(raw_payload)
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(payload),
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
 
     return response
