@@ -13,7 +13,7 @@ def get(event, context):
 
     response = {
         "statusCode": 200,
-        "body": payload,
+        "body": json.dumps(payload),
         "headers": {
             "Content-Type": "application/json"
         }
