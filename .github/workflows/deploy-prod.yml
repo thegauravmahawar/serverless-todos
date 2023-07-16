@@ -15,12 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
-        id: changes
+        id: create-todos-changes
         with:
           filters: |
             src:
               - 'create-todos/**'
-      - if: steps.changes.outputs.src == 'true'
+      - if: steps.create-todos-changes.outputs.src == 'true'
         uses: serverless/github-action@v3.2
         with:
           args: -c "cd ./create-todos && serverless deploy --stage prod"
@@ -40,12 +40,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
-        id: changes
+        id: delete-todos-changes
         with:
           filters: |
             src:
               - 'delete-todos/**'
-      - if: steps.changes.outputs.src == 'true'
+      - if: steps.delete-todos-changes.outputs.src == 'true'
         uses: serverless/github-action@v3.2
         with:
           args: -c "cd ./delete-todos && serverless deploy --stage prod"
@@ -65,12 +65,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
-        id: changes
+        id: get-todos-changes
         with:
           filters: |
             src:
               - 'get-todos/**'
-      - if: steps.changes.outputs.src == 'true'
+      - if: steps.get-todos-changes.outputs.src == 'true'
         uses: serverless/github-action@v3.2
         with:
           args: -c "cd ./get-todos && serverless deploy --stage prod"
@@ -90,12 +90,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
-        id: changes
+        id: update-todos-changes
         with:
           filters: |
             src:
               - 'update-todos/**'
-      - if: steps.changes.outputs.src == 'true'
+      - if: steps.update-todos-changes.outputs.src == 'true'
         uses: serverless/github-action@v3.2
         with:
           args: -c "cd ./update-todos && serverless deploy --stage prod"
